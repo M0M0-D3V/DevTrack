@@ -12,8 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 using DevTrack.Services;
 using DevTrack.Entities;
 using DevTrack.Models.Users;
-using DevTrack.Models.Users;
-using DevTrack.Entities;
 
 namespace DevTrack.Controllers
 {
