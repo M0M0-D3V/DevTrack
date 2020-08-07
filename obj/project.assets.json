@@ -2029,7 +2029,7 @@
       "AutoMapper >= 10.0.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.0.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.6",
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.6",
       "Microsoft.AspNetCore.Session >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 3.1.6",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.6",
@@ -2090,7 +2090,7 @@
           },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
-            "version": "(, )"
+            "version": "[3.1.6, )"
           },
           "Microsoft.AspNetCore.Session": {
             "target": "Package",

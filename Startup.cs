@@ -10,6 +10,7 @@ using DevTrack.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,14 +34,19 @@ namespace DevTrack
             // add DB here
             services.AddDbContext<DataContext>();
             services.AddCors();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+            .AddSessionStateTempDataProvider()
+            .AddNewtonsoftJson();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddRazorPages();
+            services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
             var appSettingsSection = _configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 
             var appSettings = appSettingsSection.Get<AppSettings>();
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -67,7 +73,7 @@ namespace DevTrack
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(appSettings.Secret)),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
@@ -83,8 +89,11 @@ namespace DevTrack
             {
                 app.UseDeveloperExceptionPage();
             }
-
-
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            dataContext.Database.Migrate();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -93,12 +102,19 @@ namespace DevTrack
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
-
+            app.UseSession();
+            // app.UseMvcWithDefaultRoute();
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-                endpoints.MapControllers());
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+            });
         }
     }
 }
+
