@@ -20526,6 +20526,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Home\\_Register.cshtml",
+      "TargetPath": "Views\\Home\\_Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -20533,6 +20538,11 @@
     {
       "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Home\\_Login.cshtml",
+      "TargetPath": "Views\\Home\\_Login.cshtml",
       "FileKind": "mvc"
     },
     {

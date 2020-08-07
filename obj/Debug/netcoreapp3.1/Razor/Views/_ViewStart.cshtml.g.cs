@@ -26,8 +26,15 @@ using DevTrack.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\Views\_ViewImports.cshtml"
+using DevTrack.Models.Users;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8be9c2c82f97409c6b91f6a5290709e184522130", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ee47140da3d5021645b004745449115193cc805e", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

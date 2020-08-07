@@ -1,0 +1,92 @@
+body {
+  height: 100%;
+  background-color: #2e4052;
+}
+
+.container {
+  height: 100%;
+}
+
+a {
+  transition: all 0.3s;
+}
+
+h3 {
+  color: #ffffff;
+}
+
+.btn,
+.btn-success,
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited {
+  background-color: #233532 !important;
+  color: #ffc857 !important;
+  /* filter: opacity(40%) brightness(50%); */
+}
+
+p,
+a,
+a:active,
+a:visited,
+a:hover {
+  color: #bdd9bf;
+  font-size: 10pt;
+}
+
+.formcontrol {
+  text-align: center;
+  color: #412234 !important;
+  opacity: 1;
+
+}
+
+.form-control::placeholder {
+  text-align: center;
+  color: #412234 !important;
+  opacity: 1;
+  font-size: 11pt;
+}
+
+.form-control:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  text-align: center;
+  font-size: 11pt;
+  color: #412234 !important;
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  /* Microsoft Edge */
+  text-align: center;
+  font-size: 11pt;
+  color: #412234 !important;
+  opacity: 1;
+}
+
+.form-control::moz-placeholder {
+  text-align: center;
+  font-size: 11pt;
+  color: #412234 !important;
+  opacity: 1;
+}
+
+.form-control::webkit-input-placeholder {
+  text-align: center;
+  color: #412234 !important;
+  font-size: 11pt;
+  opacity: 1;
+}
+
+input,
+select,
+textarea {
+  text-align: center;
+  font-size: 11pt;
+  color: #412234 !important;
+  opacity: 1;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* palette https://coolors.co/bdd9bf-2e4052-ffc857-ffffff-412234 */

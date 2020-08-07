@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using DevTrack.Models.Users;
 using DevTrack.Models;
 
 namespace DevTrack.Controllers
@@ -17,7 +18,7 @@ namespace DevTrack.Controllers
         {
             _logger = logger;
         }
-
+        [HttpGet("/")]
         public IActionResult Index()
         {
             return View();

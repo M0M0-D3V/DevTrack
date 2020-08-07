@@ -1,0 +1,24 @@
+@* @model RegisterModel
+<div class="col-md-6">
+    <h3 class="display-4 text-center">Register</h3>
+    <hr>
+
+    <form class="form-group" asp-action="Register" asp-controller="Home" method="POST">
+
+        <label asp-for="UserName">Username</label>
+        <span asp-validation-for="UserName" class="text-danger"></span>
+        <input class="form-control" asp-for="UserName"/> <br>
+
+        <label asp-for="Email">Email</label>
+        <span asp-validation-for="Email" class="text-danger"></span>
+        <input class="form-control" asp-for="Email"/> <br>
+        <label asp-for="Password">Password</label>
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <input class="form-control" asp-for="Password"/> <br>
+        <label asp-for="ConfirmPassword">Confirm Password</label>
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        <input class="form-control" asp-for="ConfirmPassword"/> <br>
+
+        <button class="btn btn-success btn-sm" type="submit">Register</button>
+    </form>
+</div> *@
