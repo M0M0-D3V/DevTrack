@@ -17,5 +17,10 @@ namespace DevTrack.Models.Users
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+        [Required(ErrorMessage = " is required.")]
+        [MinLength(8, ErrorMessage = "Must be at least 8 characters")]
+        [DataType(DataType.Password)]
+        [Display(Name = "ConfirmPassword")]
+        public string ConfirmPassword { get; set; }
     }
 }

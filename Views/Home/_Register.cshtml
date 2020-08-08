@@ -1,13 +1,12 @@
-@* @model RegisterModel
+@model RegisterModel
 <div class="col-md-6">
     <h3 class="display-4 text-center">Register</h3>
     <hr>
 
     <form class="form-group" asp-action="Register" asp-controller="Home" method="POST">
-
-        <label asp-for="UserName">Username</label>
-        <span asp-validation-for="UserName" class="text-danger"></span>
-        <input class="form-control" asp-for="UserName"/> <br>
+name">Username</label>
+        <span asp-validation-for="Username" class="text-danger"></span>
+        <input class="form-control" asp-for="Username"/> <br>
 
         <label asp-for="Email">Email</label>
         <span asp-validation-for="Email" class="text-danger"></span>
@@ -21,4 +20,4 @@
 
         <button class="btn btn-success btn-sm" type="submit">Register</button>
     </form>
-</div> *@
+</div>
