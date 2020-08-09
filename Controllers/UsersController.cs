@@ -68,6 +68,8 @@ namespace DevTrack.Controllers
                 LastName = user.LastName,
                 Token = tokenString
             };
+            HttpContext.Session.SetInt32("UserId", user.Id);
+            HttpContext.Session.SetString("FullName", user.FirstName + " " + user.LastName);
             Console.WriteLine("*************SENDING TO DASHBOARD*****************");
             return RedirectToAction("Dashboard", "Home", newUser);
 
@@ -85,6 +87,8 @@ namespace DevTrack.Controllers
                 // create user
                 _userService.Create(user, model.Password);
                 // return Ok();
+                HttpContext.Session.SetInt32("UserId", user.Id);
+                HttpContext.Session.SetString("FullName", user.FirstName + " " + user.LastName);
                 return RedirectToAction("Dashboard", "Home");
             }
             catch (AppException ex)

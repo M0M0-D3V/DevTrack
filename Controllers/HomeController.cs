@@ -15,6 +15,14 @@ namespace DevTrack.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private int? uid
+        {
+            get { return HttpContext.Session.GetInt32("UserId"); }
+        }
+        private bool isLoggedIn
+        {
+            get { return uid != null; }
+        }
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -23,11 +31,19 @@ namespace DevTrack.Controllers
         [HttpGet("/")]
         public IActionResult Index()
         {
-            return View();
+            if (isLoggedIn)
+            {
+                return RedirectToAction("Dashboard", new { userId = (int)uid });
+            }
+            return View("Index");
         }
         [HttpGet("dashboard")]
         public IActionResult Dashboard()
         {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View("Dashboard");
         }
         public IActionResult Privacy()

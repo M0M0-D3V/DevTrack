@@ -1,10 +1,22 @@
 @model RegisterModel
-<div class="col-md-6">
-    <h3 class="display-4 text-center">Register</h3>
-    <hr>
-
-    <form class="form-group" asp-action="Register" asp-controller="Home" method="POST">
-<label asp-                                                                                                                                                            for="Username">Username</label>
+<div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="RegisterLongTitle">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form class="form-group" asp-action="Register" asp-controller="Users" method="POST">
+                <label asp-for="FirstName">First Name</label>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+        <input class="form-control" asp-for="FirstName"/> <br>
+        <label asp-for="LastName">Last Name</label>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+        <input class="form-control" asp-for="LastName"/> <br>
+<label asp-for="Username">Username</label>
         <span asp-validation-for="Username" class="text-danger"></span>
         <input class="form-control" asp-for="Username"/> <br>
 
@@ -20,4 +32,10 @@
 
         <button class="btn btn-success btn-sm" type="submit">Register</button>
     </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
