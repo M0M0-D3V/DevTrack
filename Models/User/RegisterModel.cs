@@ -24,7 +24,7 @@ namespace DevTrack.Models.Users
         [Required(ErrorMessage = " is required.")]
         [MinLength(8, ErrorMessage = "Must be at least 8 characters")]
         [DataType(DataType.Password)]
-        [Compare("Password")]
+        [Compare("Password", ErrorMessage = "Needs to match password")]
         [Display(Name = "ConfirmPassword")]
         public string ConfirmPassword { get; set; }
     }

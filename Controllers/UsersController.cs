@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Session;
 using AutoMapper;
 using System.IdentityModel.Tokens.Jwt;
 using DevTrack.Helpers;
@@ -36,7 +38,7 @@ namespace DevTrack.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody] AuthenticateModel model)
+        public IActionResult Authenticate([FromForm] AuthenticateModel model)
         {
             var user = _userService.Authenticate(model.Username, model.Password);
 
@@ -58,19 +60,22 @@ namespace DevTrack.Controllers
             var tokenString = tokenHandler.WriteToken(token);
 
             // return basic user info and authentication token
-            return Ok(new
+            var newUser = new
             {
                 Id = user.Id,
                 Username = user.Username,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Token = tokenString
-            });
+            };
+            Console.WriteLine("*************SENDING TO DASHBOARD*****************");
+            return RedirectToAction("Dashboard", "Home", newUser);
+
         }
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register([FromBody] RegisterModel model)
+        public IActionResult Register([FromForm] RegisterModel model)
         {
             // map model to entity
             var user = _mapper.Map<User>(model);
@@ -79,7 +84,8 @@ namespace DevTrack.Controllers
             {
                 // create user
                 _userService.Create(user, model.Password);
-                return Ok();
+                // return Ok();
+                return RedirectToAction("Dashboard", "Home");
             }
             catch (AppException ex)
             {

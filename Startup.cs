@@ -9,7 +9,9 @@ using DevTrack.Helpers;
 using DevTrack.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,7 +43,10 @@ namespace DevTrack
             services.AddRazorPages();
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddDistributedMemoryCache();
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
+            });
 
             var appSettingsSection = _configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
@@ -106,7 +111,13 @@ namespace DevTrack
             // app.UseMvcWithDefaultRoute();
             app.UseAuthentication();
             app.UseAuthorization();
+            // app.UseMvc(routes =>
+            // {
+            //     routes.MapRoute(
+            //         name: "default",
+            //         template: "{controller=Home}/{action=Index}/id?");
 
+            // });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

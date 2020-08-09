@@ -1,10 +1,21 @@
 body {
   height: 100%;
-  background-color: #2e4052;
+  background-color: #BDD9BF;
 }
 
 .container {
   height: 100%;
+}
+
+#main {
+  background-color: #ffffff;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+#main h3 {
+  color: #2e4052;
+  margin-top: 20px;
 }
 
 a {
@@ -13,16 +24,24 @@ a {
 
 h3 {
   color: #ffffff;
+  margin-bottom: 40px;
 }
 
-.btn,
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #2e4052 !important;
+  color: #ffffff !important;
+  margin-bottom: 10px;
+}
+
 .btn-success,
 .btn-success:hover,
 .btn-success:active,
 .btn-success:visited {
-  background-color: #233532 !important;
-  color: #ffc857 !important;
-  /* filter: opacity(40%) brightness(50%); */
+  background-color: #ffc857 !important;
+  color: #2e4052 !important;
 }
 
 p,
@@ -32,6 +51,10 @@ a:visited,
 a:hover {
   color: #bdd9bf;
   font-size: 10pt;
+}
+
+label {
+  text-align: left;
 }
 
 .formcontrol {

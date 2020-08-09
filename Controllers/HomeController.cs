@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DevTrack.Models.Users;
@@ -23,7 +25,11 @@ namespace DevTrack.Controllers
         {
             return View();
         }
-
+        [HttpGet("dashboard")]
+        public IActionResult Dashboard()
+        {
+            return View("Dashboard");
+        }
         public IActionResult Privacy()
         {
             return View();
