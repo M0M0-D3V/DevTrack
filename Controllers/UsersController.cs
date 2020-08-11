@@ -133,12 +133,7 @@ namespace DevTrack.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-        [HttpGet("logout")]
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
-        }
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
