@@ -19,5 +19,6 @@ namespace DevTrack.Entities
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public List<Organization> MemberOf { get; set; }
+        public List<Workspace> Workspace { get; set; }
     }
 }

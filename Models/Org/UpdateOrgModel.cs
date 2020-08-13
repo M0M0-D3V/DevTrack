@@ -8,6 +8,6 @@ namespace DevTrack.Models.Org
     {
         public string Name { get; set; }
         public List<Member> Members { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

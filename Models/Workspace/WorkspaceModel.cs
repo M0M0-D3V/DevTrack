@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using DevTrack.Entities;
 
-namespace DevTrack.Models.Orgs
+namespace DevTrack.Models.Workspaces
 {
-    public class OrganizationModel
+    public class WorkspaceModel
     {
         [Key]
-        public int OrgId { get; set; }
+        public int WorkId { get; set; }
         public string Name { get; set; }
         public int UserId { get; set; }
-        public User Organizer { get; set; }
-        public List<Member> Members { get; set; }
+        public User Creator { get; set; }
+        public List<Project> Projects { get; set; }
+        public List<CoWorker> CoWorker { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }

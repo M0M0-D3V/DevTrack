@@ -1,19 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using DevTrack.Models;
+using DevTrack.Entities;
 
-namespace DevTrack.Entities
+namespace DevTrack.Models.Workspaces
 {
-    public class Organization
+    public class NewWorkspaceModel
     {
-        [Key]
-        public int OrgId { get; set; }
+        [Required(ErrorMessage = " is required.")]
         public string Name { get; set; }
 
         public int UserId { get; set; }
-        public User Organizer { get; set; }
-        public List<Member> Members { get; set; }
+        public User Creator { get; set; }
+
+        public List<CoWorker> CoWorkers { get; set; }
+
+        public List<Project> Projects { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
