@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace DevTrack.Entities
@@ -10,5 +11,8 @@ namespace DevTrack.Entities
         public User User { get; set; }
         public int OrgId { get; set; }
         public Organization Organization { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

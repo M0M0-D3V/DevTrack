@@ -10,6 +10,8 @@ namespace DevTrack.Models.Users
 
         [Required(ErrorMessage = " is required.")]
         [MinLength(8, ErrorMessage = "Must be at least 8 characters")]
+        [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+        , ErrorMessage = "Must have at least 1 number, 1 capital letter, and a special character")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

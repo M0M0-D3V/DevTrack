@@ -1,3 +1,5 @@
+using System;
+
 namespace DevTrack.Models.Users
 {
     public class UpdateModel
@@ -7,5 +9,6 @@ namespace DevTrack.Models.Users
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

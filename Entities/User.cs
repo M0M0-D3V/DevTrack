@@ -15,6 +15,8 @@ namespace DevTrack.Entities
         public string Email { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public List<Organization> MemberOf { get; set; }
     }

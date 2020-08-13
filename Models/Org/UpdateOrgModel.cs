@@ -1,17 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using DevTrack.Entities;
 
-namespace DevTrack.Models.Orgs
+namespace DevTrack.Models.Org
 {
-    public class OrganizationModel
+    public class UpdateOrgModel
     {
-        [Key]
-        public int OrgId { get; set; }
         public string Name { get; set; }
         public List<Member> Members { get; set; }
-        public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
 }

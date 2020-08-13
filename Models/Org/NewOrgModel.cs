@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using DevTrack.Entities;
@@ -13,6 +14,9 @@ namespace DevTrack.Models.Orgs
         public User Organizer { get; set; }
 
         public List<Member> Members { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
     }
 }
