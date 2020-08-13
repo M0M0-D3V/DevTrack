@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using DevTrack.Entities;
 
-namespace DevTrack.Models.Org
+namespace DevTrack.Models.Orgs
 {
     public class UpdateOrgModel
     {
