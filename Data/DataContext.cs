@@ -25,6 +25,7 @@ namespace DevTrack.Data
         public DbSet<Member> Members { get; set; }
         public DbSet<Workspace> Workspaces { get; set; }
         public DbSet<CoWorker> CoWorkers { get; set; }
-
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Developer> Developers { get; set; }
     }
 }
