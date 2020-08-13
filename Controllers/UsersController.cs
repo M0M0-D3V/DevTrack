@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Session;
 using AutoMapper;
 using System.IdentityModel.Tokens.Jwt;
 using DevTrack.Helpers;
@@ -51,7 +50,7 @@ namespace DevTrack.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Id.ToString())
+                    new Claim(ClaimTypes.Name, user.UserId.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -62,13 +61,13 @@ namespace DevTrack.Controllers
             // return basic user info and authentication token
             var newUser = new
             {
-                Id = user.Id,
+                Id = user.UserId,
                 Username = user.Username,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Token = tokenString
             };
-            HttpContext.Session.SetInt32("UserId", user.Id);
+            HttpContext.Session.SetInt32("UserId", user.UserId);
             HttpContext.Session.SetString("FullName", user.FirstName + " " + user.LastName);
             Console.WriteLine("*************SENDING TO DASHBOARD*****************");
             return RedirectToAction("Dashboard", "Home", newUser);
@@ -87,7 +86,7 @@ namespace DevTrack.Controllers
                 // create user
                 _userService.Create(user, model.Password);
                 // return Ok();
-                HttpContext.Session.SetInt32("UserId", user.Id);
+                HttpContext.Session.SetInt32("UserId", user.UserId);
                 HttpContext.Session.SetString("FullName", user.FirstName + " " + user.LastName);
                 return RedirectToAction("Dashboard", "Home");
             }
@@ -119,7 +118,7 @@ namespace DevTrack.Controllers
         {
             // map model to entity and set id
             var user = _mapper.Map<User>(model);
-            user.Id = id;
+            user.UserId = id;
 
             try
             {
