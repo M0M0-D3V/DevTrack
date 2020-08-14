@@ -3,6 +3,7 @@ using DevTrack.Entities;
 using DevTrack.Models.Users;
 using DevTrack.Models.Orgs;
 using DevTrack.Models.Workspaces;
+using DevTrack.Models.Projects;
 
 namespace DevTrack.Helpers
 {
@@ -22,6 +23,10 @@ namespace DevTrack.Helpers
             CreateMap<Workspace, WorkspaceModel>();
             CreateMap<NewWorkspaceModel, Workspace>();
             CreateMap<UpdateWorkspaceModel, Workspace>();
+
+            CreateMap<Project, ProjectModel>();
+            CreateMap<NewProjectModel, Project>();
+            CreateMap<UpdateProjectModel, Project>();
         }
     }
 }

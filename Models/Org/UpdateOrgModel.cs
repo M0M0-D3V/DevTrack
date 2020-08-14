@@ -8,6 +8,8 @@ namespace DevTrack.Models.Orgs
     {
         public string Name { get; set; }
         public List<Member> Members { get; set; }
+        public List<Workspace> Workspaces { get; set; }
+        public List<Project> Projects { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

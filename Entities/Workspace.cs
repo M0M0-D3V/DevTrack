@@ -13,6 +13,8 @@ namespace DevTrack.Entities
 
         public int UserId { get; set; }
         public User Creator { get; set; }
+        public int OrgId { get; set; }
+        public Organization Organization { get; set; }
         public List<Project> Projects { get; set; }
         public List<CoWorker> CoWorkers { get; set; }
 
