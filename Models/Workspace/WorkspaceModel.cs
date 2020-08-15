@@ -8,7 +8,7 @@ namespace DevTrack.Models.Workspaces
     public class WorkspaceModel
     {
         [Key]
-        public int WorkId { get; set; }
+        public int WorkspaceId { get; set; }
         public string Name { get; set; }
         public int UserId { get; set; }
         public User Creator { get; set; }

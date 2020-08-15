@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevTrack.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200815132315_Category")]
-    partial class Category
+    [Migration("20200815180143_StartOver")]
+    partial class StartOver
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,17 +25,23 @@ namespace DevTrack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("CategoryId");
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("DevTrack.Entities.CoWorker", b =>
@@ -53,19 +59,51 @@ namespace DevTrack.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("WorkId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WorkspaceWorkId")
+                    b.Property<int>("WorkspaceId")
                         .HasColumnType("int");
 
                     b.HasKey("WorkerId");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WorkspaceWorkId");
+                    b.HasIndex("WorkspaceId");
 
                     b.ToTable("CoWorkers");
+                });
+
+            modelBuilder.Entity("DevTrack.Entities.Comment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Body")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("TaskId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("DevTrack.Entities.Developer", b =>
@@ -95,6 +133,27 @@ namespace DevTrack.Migrations
                     b.ToTable("Developers");
                 });
 
+            modelBuilder.Entity("DevTrack.Entities.Favorite", b =>
+                {
+                    b.Property<int>("FavoriteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FavoriteId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("DevTrack.Entities.Member", b =>
                 {
                     b.Property<int>("MemberId")
@@ -104,10 +163,7 @@ namespace DevTrack.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("OrgId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OrganizationOrgId")
+                    b.Property<int>("OrganizationId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -118,7 +174,7 @@ namespace DevTrack.Migrations
 
                     b.HasKey("MemberId");
 
-                    b.HasIndex("OrganizationOrgId");
+                    b.HasIndex("OrganizationId");
 
                     b.HasIndex("UserId");
 
@@ -127,7 +183,7 @@ namespace DevTrack.Migrations
 
             modelBuilder.Entity("DevTrack.Entities.Organization", b =>
                 {
-                    b.Property<int>("OrgId")
+                    b.Property<int>("OrganizationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -143,7 +199,7 @@ namespace DevTrack.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("OrgId");
+                    b.HasKey("OrganizationId");
 
                     b.HasIndex("UserId");
 
@@ -168,7 +224,7 @@ namespace DevTrack.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int?>("OrganizationOrgId")
+                    b.Property<int?>("OrganizationId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -177,16 +233,16 @@ namespace DevTrack.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WorkspaceWorkId")
+                    b.Property<int>("WorkspaceId")
                         .HasColumnType("int");
 
                     b.HasKey("ProjectId");
 
-                    b.HasIndex("OrganizationOrgId");
+                    b.HasIndex("OrganizationId");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WorkspaceWorkId");
+                    b.HasIndex("WorkspaceId");
 
                     b.ToTable("Projects");
                 });
@@ -200,16 +256,50 @@ namespace DevTrack.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Deadline")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("DeveloperId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Priority")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("TaskId");
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("DeveloperId");
+
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Task");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("DevTrack.Entities.User", b =>
@@ -249,7 +339,7 @@ namespace DevTrack.Migrations
 
             modelBuilder.Entity("DevTrack.Entities.Workspace", b =>
                 {
-                    b.Property<int>("WorkId")
+                    b.Property<int>("WorkspaceId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -259,10 +349,7 @@ namespace DevTrack.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("OrgId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OrganizationOrgId")
+                    b.Property<int>("OrganizationId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -271,9 +358,9 @@ namespace DevTrack.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("WorkId");
+                    b.HasKey("WorkspaceId");
 
-                    b.HasIndex("OrganizationOrgId");
+                    b.HasIndex("OrganizationId");
 
                     b.HasIndex("UserId");
 
@@ -299,7 +386,30 @@ namespace DevTrack.Migrations
 
                     b.HasOne("DevTrack.Entities.Workspace", "Workspace")
                         .WithMany("CoWorkers")
-                        .HasForeignKey("WorkspaceWorkId");
+                        .HasForeignKey("WorkspaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DevTrack.Entities.Comment", b =>
+                {
+                    b.HasOne("DevTrack.Entities.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DevTrack.Entities.Task", "Task")
+                        .WithMany("Comments")
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DevTrack.Entities.User", "Author")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DevTrack.Entities.Developer", b =>
@@ -317,11 +427,28 @@ namespace DevTrack.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DevTrack.Entities.Favorite", b =>
+                {
+                    b.HasOne("DevTrack.Entities.Project", "FavProject")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DevTrack.Entities.User", "FavoritedBy")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("DevTrack.Entities.Member", b =>
                 {
                     b.HasOne("DevTrack.Entities.Organization", "Organization")
                         .WithMany("Members")
-                        .HasForeignKey("OrganizationOrgId");
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DevTrack.Entities.User", "User")
                         .WithMany("Members")
@@ -343,7 +470,7 @@ namespace DevTrack.Migrations
                 {
                     b.HasOne("DevTrack.Entities.Organization", null)
                         .WithMany("Projects")
-                        .HasForeignKey("OrganizationOrgId");
+                        .HasForeignKey("OrganizationId");
 
                     b.HasOne("DevTrack.Entities.User", "ProjectLead")
                         .WithMany("Projects")
@@ -351,9 +478,11 @@ namespace DevTrack.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DevTrack.Entities.Workspace", null)
+                    b.HasOne("DevTrack.Entities.Workspace", "Workspace")
                         .WithMany("Projects")
-                        .HasForeignKey("WorkspaceWorkId");
+                        .HasForeignKey("WorkspaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DevTrack.Entities.Task", b =>
@@ -362,16 +491,30 @@ namespace DevTrack.Migrations
                         .WithMany("Tasks")
                         .HasForeignKey("CategoryId");
 
+                    b.HasOne("DevTrack.Entities.Developer", "AssignedTo")
+                        .WithMany("Tasks")
+                        .HasForeignKey("DeveloperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DevTrack.Entities.Project", null)
                         .WithMany("Tasks")
                         .HasForeignKey("ProjectId");
+
+                    b.HasOne("DevTrack.Entities.User", "Reporter")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DevTrack.Entities.Workspace", b =>
                 {
                     b.HasOne("DevTrack.Entities.Organization", "Organization")
                         .WithMany("Workspaces")
-                        .HasForeignKey("OrganizationOrgId");
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DevTrack.Entities.User", "Creator")
                         .WithMany("Workspace")

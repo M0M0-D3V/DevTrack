@@ -17,7 +17,6 @@ namespace DevTrack.Entities
         public DateTime Deadline { get; set; }
         public List<Comment> Comments { get; set; }
         public string Priority { get; set; }
-        public List<string> Labels { get; set; }
         public string Status { get; set; }
         public int Number { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;

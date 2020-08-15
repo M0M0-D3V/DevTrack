@@ -9,7 +9,7 @@ namespace DevTrack.Entities
         public int WorkerId { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        public int WorkId { get; set; }
+        public int WorkspaceId { get; set; }
         public Workspace Workspace { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;

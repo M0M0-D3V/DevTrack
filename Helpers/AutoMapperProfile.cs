@@ -4,6 +4,7 @@ using DevTrack.Models.Users;
 using DevTrack.Models.Orgs;
 using DevTrack.Models.Workspaces;
 using DevTrack.Models.Projects;
+using DevTrack.Models.Tasks;
 
 namespace DevTrack.Helpers
 {
@@ -27,6 +28,10 @@ namespace DevTrack.Helpers
             CreateMap<Project, ProjectModel>();
             CreateMap<NewProjectModel, Project>();
             CreateMap<UpdateProjectModel, Project>();
+
+            CreateMap<Task, TaskModel>();
+            CreateMap<NewTaskModel, Task>();
+            CreateMap<UpdateTaskModel, Task>();
         }
     }
 }

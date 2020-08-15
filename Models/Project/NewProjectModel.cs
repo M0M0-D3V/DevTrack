@@ -12,6 +12,8 @@ namespace DevTrack.Models.Projects
         public string Description { get; set; }
         public int UserId { get; set; }
         public User ProjectLead { get; set; }
+        public int WorkspaceId { get; set; }
+        public Workspace Workspace { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }

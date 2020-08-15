@@ -8,7 +8,7 @@ namespace DevTrack.Entities
     public class Organization
     {
         [Key]
-        public int OrgId { get; set; }
+        public int OrganizationId { get; set; }
         public string Name { get; set; }
 
         public int UserId { get; set; }

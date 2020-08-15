@@ -28,5 +28,8 @@ namespace DevTrack.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<Developer> Developers { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Task> Tasks { get; set; }
     }
 }
