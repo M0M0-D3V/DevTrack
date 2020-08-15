@@ -31,5 +31,6 @@ namespace DevTrack.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Subtask> Subtasks { get; set; }
     }
 }

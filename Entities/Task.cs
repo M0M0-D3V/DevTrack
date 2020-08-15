@@ -19,6 +19,7 @@ namespace DevTrack.Entities
         public string Priority { get; set; }
         public string Status { get; set; }
         public int Number { get; set; }
+        public List<Subtask> Subtasks { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
