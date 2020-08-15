@@ -5,6 +5,7 @@ using DevTrack.Models.Orgs;
 using DevTrack.Models.Workspaces;
 using DevTrack.Models.Projects;
 using DevTrack.Models.Tasks;
+using DevTrack.Models.Subtasks;
 
 namespace DevTrack.Helpers
 {
@@ -32,6 +33,10 @@ namespace DevTrack.Helpers
             CreateMap<Task, TaskModel>();
             CreateMap<NewTaskModel, Task>();
             CreateMap<UpdateTaskModel, Task>();
+
+            CreateMap<Subtask, SubtaskModel>();
+            CreateMap<NewSubtaskModel, Subtask>();
+            CreateMap<UpdateSubtaskModel, Subtask>();
         }
     }
 }
