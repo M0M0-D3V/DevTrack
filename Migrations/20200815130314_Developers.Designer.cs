@@ -3,14 +3,16 @@ using System;
 using DevTrack.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevTrack.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200815130314_Developers")]
+    partial class Developers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,10 +25,7 @@ namespace DevTrack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("ProjectId")
+                    b.Property<int?>("ProjectId")
                         .HasColumnType("int");
 
                     b.HasKey("CategoryId");
@@ -195,15 +194,10 @@ namespace DevTrack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ProjectId")
                         .HasColumnType("int");
 
                     b.HasKey("TaskId");
-
-                    b.HasIndex("CategoryId");
 
                     b.HasIndex("ProjectId");
 
@@ -280,11 +274,9 @@ namespace DevTrack.Migrations
 
             modelBuilder.Entity("DevTrack.Entities.Category", b =>
                 {
-                    b.HasOne("DevTrack.Entities.Project", "Project")
+                    b.HasOne("DevTrack.Entities.Project", null)
                         .WithMany("Categories")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProjectId");
                 });
 
             modelBuilder.Entity("DevTrack.Entities.CoWorker", b =>
@@ -356,10 +348,6 @@ namespace DevTrack.Migrations
 
             modelBuilder.Entity("DevTrack.Entities.Task", b =>
                 {
-                    b.HasOne("DevTrack.Entities.Category", null)
-                        .WithMany("Tasks")
-                        .HasForeignKey("CategoryId");
-
                     b.HasOne("DevTrack.Entities.Project", null)
                         .WithMany("Tasks")
                         .HasForeignKey("ProjectId");

@@ -14,8 +14,8 @@ namespace DevTrack.Models.Projects
         public int UserId { get; set; }
         public User ProjectLead { get; set; }
         public List<Developer> Developers { get; set; }
-        public List<Task> Task { get; set; }
-        public List<Category> Category { get; set; }
+        public List<Task> Tasks { get; set; }
+        public List<Category> Categories { get; set; }
         public DateTime Deadline { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
