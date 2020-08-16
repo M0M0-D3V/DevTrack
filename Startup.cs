@@ -39,6 +39,7 @@ namespace DevTrack
             services.AddControllersWithViews()
             .AddSessionStateTempDataProvider()
             .AddNewtonsoftJson();
+            services.AddHttpContextAccessor();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddRazorPages();
             services.AddMvc().AddSessionStateTempDataProvider();
@@ -111,6 +112,7 @@ namespace DevTrack
             // app.UseMvcWithDefaultRoute();
             app.UseAuthentication();
             app.UseAuthorization();
+
             // app.UseMvc(routes =>
             // {
             //     routes.MapRoute(
