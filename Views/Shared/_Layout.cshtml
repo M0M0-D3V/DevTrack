@@ -21,21 +21,22 @@
      <ul class="nav sidebar-nav">
        <div class="sidebar-header">
        <div class="sidebar-brand">
-         <a href="#">Brand</a></div></div>
+         <a href="#">devtrack</a></div></div>
        <li><a href="#home">Home</a></li>
-       <li><a href="#about">About</a></li>
-       <li><a href="#events">Events</a></li>
-       <li><a href="#team">Team</a></li>
+       <li><a href="#mytasks">My Tasks</a></li>
+       <li><a href="#inbox">Inbox</a></li>
+       <li><a href="#portfolios">Portfolios</a></li>
+       <li><a href="#Goals">Goals</a></li>
+       <hr/>
        <li class="dropdown">
-       <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Works <span class="caret"></span></a>
+       <a href="#favorites" class="dropdown-toggle"  data-toggle="dropdown">Favorites <span class="caret"></span></a>
      <ul class="dropdown-menu animated fadeInLeft" role="menu">
-      <div class="dropdown-header">Dropdown heading</div>
-      <li><a href="#pictures">Pictures</a></li>
-      <li><a href="#videos">Videeos</a></li>
-      <li><a href="#books">Books</a></li>
-      <li><a href="#art">Art</a></li>
-      <li><a href="#awards">Awards</a></li>
+      <div class="dropdown-header">Favorite Projects</div>
+      @* FOR LOOP HERE *@
+      <li><a href="#project1">Project1</a></li>
+        @* END FOR LOOP *@
       </ul>
+      <hr/>
       </li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -51,10 +52,6 @@
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
             </button>
-        </div>
-        <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DevTrack</a>
@@ -77,6 +74,10 @@
                 </div>
             </div>
         </nav>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
         }
     </header>
     <div class="container">
