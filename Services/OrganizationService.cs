@@ -3,7 +3,11 @@ using DevTrack.Entities;
 
 namespace DevTrack.Services
 {
-    public class OrganizationService
+    public interface IOrganizationService
+    {
+        Organization Create(Organization organization);
+    }
+    public class OrganizationService : IOrganizationService
     {
         private DataContext _context;
 
