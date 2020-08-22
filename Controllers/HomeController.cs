@@ -38,13 +38,13 @@ namespace DevTrack.Controllers
             return View("Index");
         }
         [HttpGet("dashboard")]
-        public IActionResult Dashboard()
+        public IActionResult Dashboard(UserModel userId)
         {
             if (!isLoggedIn)
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View("Dashboard");
+            return View("Dashboard", userId);
         }
         public IActionResult Privacy()
         {

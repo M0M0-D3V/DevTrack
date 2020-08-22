@@ -88,6 +88,7 @@ namespace DevTrack.Controllers
                 // return Ok();
                 HttpContext.Session.SetInt32("UserId", user.UserId);
                 HttpContext.Session.SetString("FullName", user.FirstName + " " + user.LastName);
+                HttpContext.Session.SetString("UserInitials", user.FirstName[0].ToString() + user.LastName[0].ToString());
                 return RedirectToAction("Dashboard", "Home");
             }
             catch (AppException ex)

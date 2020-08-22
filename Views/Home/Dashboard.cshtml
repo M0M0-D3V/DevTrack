@@ -1,3 +1,4 @@
+@model UserModel
 @{
     ViewData["Title"] = "Dashboard";
 }
@@ -6,4 +7,5 @@
 </head>
 <div class="container">
     <h1>WHELP, welcome @Context.Session.GetString("FullName")</h1>
+    <h3>Intials: @Model.FirstName[0]@Model.LastName[0]</h3>
 </div>

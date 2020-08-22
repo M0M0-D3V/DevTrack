@@ -1,7 +1,7 @@
 using AutoMapper;
 using DevTrack.Entities;
 using DevTrack.Helpers;
-using DevTrack.Models.Orgs;
+using DevTrack.Models.Workspaces;
 using DevTrack.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,30 +12,29 @@ namespace DevTrack.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class OrganizationController : Controller
+    public class WorkspaceController : Controller
     {
-        private IOrganizationService _organizationService;
+        private IWorkspaceService _workspaceService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
-        public OrganizationController(
-            IOrganizationService organizationService,
+        public WorkspaceController(
+            IWorkspaceService workspaceService,
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
-            _organizationService = organizationService;
+            _workspaceService = workspaceService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
         [HttpPost("new")]
-        public IActionResult New([FromForm] OrganizationModel model)
+        public IActionResult New([FromForm] WorkspaceModel model)
         {
-            var org = _mapper.Map<Organization>(model);
-
+            var work = _mapper.Map<Workspace>(model);
             try
             {
-                // create org
-                _organizationService.Create(org);
+                // create workspace
+                _workspaceService.Create(work);
                 return RedirectToAction("Dashboard", "Home");
             }
             catch (AppException ex)
