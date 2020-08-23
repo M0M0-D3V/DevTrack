@@ -37,6 +37,7 @@ namespace DevTrack.Controllers
         [HttpPost("create")]
         public IActionResult Create([FromForm] WorkspaceModel model)
         {
+            model.UserId = (int)HttpContext.Session.GetInt32("UserId");
             var work = _mapper.Map<Workspace>(model);
             try
             {

@@ -1,4 +1,4 @@
-﻿@model UserModel
+﻿@* @model UserModel *@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,17 +28,19 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="plusDropdown">
                                 <a asp-controller="Organization" asp-action="New" class="dropdown-item">Organization</a>
-                                <a asp-controller="Home" asp-action="NewWorkspace" class="dropdown-item">Workspace</a>
+                                <a asp-controller="Workspace" asp-action="New" class="dropdown-item">Workspace</a>
                                 <a class="dropdown-item" href="#">Task</a>
                                 <a class="dropdown-item" href="#">Project</a>
                                 <a class="dropdown-item" href="#">Conversation</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="userInitialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@Model.FirstName[0]@Model.LastName[0]
+                            @* <a class="nav-link" href="#" id="userInitialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@Model.FirstName[0]@Model.LastName[0]
+                            </a>                            *@
+                            <a class="nav-link" href="#" id="userInitialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@Context.Session.GetString("UserInitials")
                             </a>
                             <div class="dropdown-menu" aria-labelledby="userIntialsDropdown">
-                                <a asp-controller="Home" asp-action="NewWorkspace" class="dropdown-item">Workspace</a>
+                                <a asp-controller="Workspace" asp-action="New" class="dropdown-item">Workspace</a>
                                 <hr/>
                                 <a asp-controller="Home" asp-action="Logout" class="dropdown-item">Logout</a>
                             </div>
