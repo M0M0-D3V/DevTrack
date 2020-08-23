@@ -50,6 +50,16 @@ namespace DevTrack.Controllers
         {
             return View();
         }
+        [HttpGet("workspace/new")]
+        public IActionResult NewWorkspace(UserModel userId)
+        {
+            if (isLoggedIn)
+            {
+
+                return View("NewWorkspace", userId);
+            }
+            return View("Index");
+        }
         [HttpGet("logout")]
         public IActionResult Logout()
         {

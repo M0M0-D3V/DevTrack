@@ -1,0 +1,31 @@
+@* @model RegisterModel *@
+@{
+    ViewData["Title"] = "New Workspace";
+}
+@* <head>
+    <link rel="stylesheet" href="~/css/loginstyle.css"/>
+</head> *@
+<div class="container">
+            @* <partial name="_Workspace"/> *@
+@* <h3 class="text-center">Workspace</h3>
+<button class="btn btn-primary">Use Google Account</a></button>
+<hr/>
+<p class="lead">OR</p>
+<form asp-action="Authenticate" asp-controller="Users" method="POST">
+    <div class="form-group">
+    <label asp-for="Username"></label>
+        <input class="form-control" asp-for="Username"/> <br>
+    <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password"/>
+        <span class="text-danger" asp-validation-for="Username"></span>
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-md" type="submit" >Sign In</button>
+    </div>
+</form>
+<p>
+    <a href="#">Forgotten your password?</a>
+</p> *@
+<h1>work please</h1>
+</div>

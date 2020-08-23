@@ -5,6 +5,7 @@ body {
 
 .container {
   height: 100%;
+
 }
 
 .register {
@@ -15,10 +16,12 @@ body {
   background-color: #ffffff;
   border: 1px solid white;
   border-radius: 20px;
+  padding: 10px;
 }
 
 #main h3 {
   color: #2e4052;
+  /* color: red; */
   margin-top: 20px;
 }
 
@@ -66,7 +69,6 @@ label {
   text-align: center;
   color: #412234 !important;
   opacity: 1;
-
 }
 
 .form-control::placeholder {

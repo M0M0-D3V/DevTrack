@@ -13,9 +13,9 @@
     <header>
         @if(@Context.Session.GetInt32("UserId") != null)
         {
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 d-flex">
             @* <nav class="navbar navbar-light bg-white border-bottom box-shadow mb-3 justify-content-between"> *@
-            <div id="NavDropDown" class="lex-container container">
+            <div id="NavDropDown" class="lex-container container mr-auto">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">devtrack</a>
                     <ul class="navbar-nav fex-container mr-auto">
                         <li>
@@ -24,11 +24,11 @@
                             </form>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="plusDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">+
+                            <a class="nav-link" id="plusDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">+
                             </a>
                             <div class="dropdown-menu" aria-labelledby="plusDropdown">
                                 <a asp-controller="Organization" asp-action="New" class="dropdown-item">Organization</a>
-                                <a asp-controller="Workspace" asp-action="New" class="dropdown-item">Workspace</a>
+                                <a asp-controller="Home" asp-action="NewWorkspace" class="dropdown-item">Workspace</a>
                                 <a class="dropdown-item" href="#">Task</a>
                                 <a class="dropdown-item" href="#">Project</a>
                                 <a class="dropdown-item" href="#">Conversation</a>
@@ -38,7 +38,7 @@
                             <a class="nav-link" href="#" id="userInitialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@Model.FirstName[0]@Model.LastName[0]
                             </a>
                             <div class="dropdown-menu" aria-labelledby="userIntialsDropdown">
-                                <a asp-controller="Workspace" asp-action="New" class="dropdown-item">Workspace</a>
+                                <a asp-controller="Home" asp-action="NewWorkspace" class="dropdown-item">Workspace</a>
                                 <hr/>
                                 <a asp-controller="Home" asp-action="Logout" class="dropdown-item">Logout</a>
                             </div>

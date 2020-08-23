@@ -1,16 +1,18 @@
 using AutoMapper;
 using DevTrack.Entities;
 using DevTrack.Helpers;
+using DevTrack.Models.Users;
 using DevTrack.Models.Workspaces;
 using DevTrack.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
 namespace DevTrack.Controllers
 {
-    [Authorize]
-    [ApiController]
+    // [Authorize]
+    // [ApiController]
     [Route("[controller]")]
     public class WorkspaceController : Controller
     {
@@ -27,8 +29,13 @@ namespace DevTrack.Controllers
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
-        [HttpPost("new")]
-        public IActionResult New([FromForm] WorkspaceModel model)
+        // [HttpGet("new")]
+        // public IActionResult New(UserModel uid)
+        // {
+        //     return View("New", uid);
+        // }
+        [HttpPost("create")]
+        public IActionResult Create([FromForm] WorkspaceModel model)
         {
             var work = _mapper.Map<Workspace>(model);
             try
