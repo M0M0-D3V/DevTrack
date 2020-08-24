@@ -33,30 +33,33 @@ namespace DevTrack.Controllers
         {
             if (isLoggedIn)
             {
+                int userId = (int)uid;
+                // var user = ().GetById(userId);
+
                 return RedirectToAction("Dashboard", new { userId = (int)uid });
             }
             return View("Index");
         }
         [HttpGet("dashboard")]
-        public IActionResult Dashboard(UserModel userId)
+        public IActionResult Dashboard(UserModel user)
         {
             if (!isLoggedIn)
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View("Dashboard", userId);
+            return View("Dashboard", user);
         }
         public IActionResult Privacy()
         {
             return View();
         }
         [HttpGet("workspace/new")]
-        public IActionResult NewWorkspace(UserModel userId)
+        public IActionResult NewWorkspace(UserModel user)
         {
             if (isLoggedIn)
             {
 
-                return View("NewWorkspace", userId);
+                return View("NewWorkspace", user.UserId);
             }
             return View("Index");
         }

@@ -30,9 +30,9 @@ namespace DevTrack.Controllers
             _appSettings = appSettings.Value;
         }
         // [HttpGet("new")]
-        // public IActionResult New(UserModel uid)
+        // public IActionResult New(UserModel user)
         // {
-        //     return View("New", uid);
+        //     return View("New", user);
         // }
         [HttpPost("create")]
         public IActionResult Create([FromForm] WorkspaceModel model)
@@ -43,7 +43,7 @@ namespace DevTrack.Controllers
             {
                 // create workspace
                 _workspaceService.Create(work);
-                return RedirectToAction("Dashboard", "Home");
+                return RedirectToAction("Dashboard", "Home", model.UserId);
             }
             catch (AppException ex)
             {

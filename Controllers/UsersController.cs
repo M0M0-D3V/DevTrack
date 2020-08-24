@@ -85,11 +85,11 @@ namespace DevTrack.Controllers
             {
                 // create user
                 _userService.Create(user, model.Password);
-                // return Ok();
                 HttpContext.Session.SetInt32("UserId", user.UserId);
                 HttpContext.Session.SetString("FullName", user.FirstName + " " + user.LastName);
-                HttpContext.Session.SetString("UserInitials", user.FirstName[0].ToString() + user.LastName[0].ToString());
-                return RedirectToAction("Dashboard", "Home");
+                string initials = user.FirstName[0].ToString() + user.LastName[0].ToString();
+                HttpContext.Session.SetString("UserInitials", initials);
+                return RedirectToAction("Dashboard", "Home", user);
             }
             catch (AppException ex)
             {
