@@ -34,7 +34,7 @@ namespace DevTrack.Controllers
             if (isLoggedIn)
             {
                 int userId = (int)uid;
-                // var user = ().GetById(userId);
+                // var user = UsersController().GetById(userId);
 
                 return RedirectToAction("Dashboard", new { userId = (int)uid });
             }
@@ -53,16 +53,16 @@ namespace DevTrack.Controllers
         {
             return View();
         }
-        [HttpGet("workspace/new")]
-        public IActionResult NewWorkspace(UserModel user)
-        {
-            if (isLoggedIn)
-            {
+        // [HttpGet("workspace/new")]
+        // public IActionResult NewWorkspace(UserModel user)
+        // {
+        //     if (isLoggedIn)
+        //     {
 
-                return View("NewWorkspace", user.UserId);
-            }
-            return View("Index");
-        }
+        //         return View("NewWorkspace", user.UserId);
+        //     }
+        //     return View("Index");
+        // }
         [HttpGet("logout")]
         public IActionResult Logout()
         {

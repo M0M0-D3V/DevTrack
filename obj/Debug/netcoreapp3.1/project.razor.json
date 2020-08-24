@@ -14402,11 +14402,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Workspace\\_Workspace.cshtml",
-      "TargetPath": "Views\\Workspace\\_Workspace.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Home\\Dashboard.cshtml",
       "TargetPath": "Views\\Home\\Dashboard.cshtml",
       "FileKind": "mvc"
@@ -14424,16 +14419,6 @@
     {
       "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Workspace\\New.cshtml",
       "TargetPath": "Views\\Workspace\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Home\\NewWorkspace.cshtml",
-      "TargetPath": "Views\\Home\\NewWorkspace.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Home\\_Workspace.cshtml",
-      "TargetPath": "Views\\Home\\_Workspace.cshtml",
       "FileKind": "mvc"
     },
     {

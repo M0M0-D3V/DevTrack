@@ -19,6 +19,14 @@ namespace DevTrack.Controllers
         private IWorkspaceService _workspaceService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
+        private int? uid
+        {
+            get { return HttpContext.Session.GetInt32("UserId"); }
+        }
+        private bool isLoggedIn
+        {
+            get { return uid != null; }
+        }
 
         public WorkspaceController(
             IWorkspaceService workspaceService,
@@ -29,13 +37,17 @@ namespace DevTrack.Controllers
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
-        // [HttpGet("new")]
-        // public IActionResult New(UserModel user)
-        // {
-        //     return View("New", user);
-        // }
+        [HttpGet("new")]
+        public IActionResult New(NewWorkspaceModel workspace)
+        {
+            if (isLoggedIn)
+            {
+                return View("New", workspace);
+            }
+            return RedirectToAction("Index", "Home");
+        }
         [HttpPost("create")]
-        public IActionResult Create([FromForm] WorkspaceModel model)
+        public IActionResult Create([FromForm] NewWorkspaceModel model)
         {
             model.UserId = (int)HttpContext.Session.GetInt32("UserId");
             var work = _mapper.Map<Workspace>(model);
