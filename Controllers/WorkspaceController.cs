@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using DevTrack.Entities;
 using DevTrack.Helpers;
@@ -63,5 +64,11 @@ namespace DevTrack.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var workspaces = _workspaceService.GetAll();
+            var model = _mapper.Map<IList<WorkspaceModel>>(workspaces);
+            return Ok(model);
+        }
     }
-}

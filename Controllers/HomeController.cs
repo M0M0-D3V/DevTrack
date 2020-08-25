@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DevTrack.Models.Users;
 using DevTrack.Models;
+using DevTrack.Controllers;
 
 namespace DevTrack.Controllers
 {
@@ -47,7 +48,8 @@ namespace DevTrack.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            // var user = WorkspaceController.GetById(user.UserId);
+
+            var user = new WorkspaceController.GetAll();
             return View("Dashboard", user);
         }
         public IActionResult Privacy()
