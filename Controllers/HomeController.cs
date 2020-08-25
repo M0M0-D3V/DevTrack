@@ -47,6 +47,7 @@ namespace DevTrack.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            // var user = WorkspaceController.GetById(user.UserId);
             return View("Dashboard", user);
         }
         public IActionResult Privacy()
