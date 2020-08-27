@@ -49,7 +49,7 @@ namespace DevTrack.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var user = new WorkspaceController.GetAll();
+            // var user = new WorkspaceController().GetAll();
             return View("Dashboard", user);
         }
         public IActionResult Privacy()
