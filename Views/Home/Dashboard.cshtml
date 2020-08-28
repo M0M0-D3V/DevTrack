@@ -7,5 +7,25 @@
 </head>
 <div class="container">
     <h1>WHELP, welcome @Context.Session.GetString("FullName")</h1>
-
+<table class="table table-striped table-bordered table-hover table-condensed table-light">
+    <thead>
+        <th>Workspace Name</th>
+        <th>Created By</th>
+        <th>Projects</th>
+        <th>Members</th>
+        <th>Created Date</th>
+    </thead>
+    @{
+        foreach (var a in @ViewBag.AllWorkspaces)
+        {
+            <tr>
+                <td>@a.Name</td>
+                <td>@a.Creator</td>
+                <td>@a.Projects</td>
+                <td>@a.CoWorkers</td>
+                <td>@a.CreatedAt</td>
+            </tr>
+        }
+    }
+</table>
 </div>
