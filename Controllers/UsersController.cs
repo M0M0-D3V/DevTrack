@@ -16,14 +16,22 @@ using DevTrack.Models.Users;
 
 namespace DevTrack.Controllers
 {
-    [Authorize]
-    [ApiController]
+    // [Authorize]
+    // [ApiController]
     [Route("[controller]")]
     public class UsersController : Controller
     {
         private IUserService _userService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
+        private int? uid
+        {
+            get { return HttpContext.Session.GetInt32("UserId"); }
+        }
+        private bool isLoggedIn
+        {
+            get { return uid != null; }
+        }
 
         public UsersController(
             IUserService userService,
@@ -42,8 +50,8 @@ namespace DevTrack.Controllers
             var user = _userService.Authenticate(model.Username, model.Password);
 
             if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
-
+                // return BadRequest(new { message = "Username or password is incorrect" });
+                return RedirectToAction("Index", "Home");
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -94,7 +102,8 @@ namespace DevTrack.Controllers
             catch (AppException ex)
             {
                 // return error message if there was an exception
-                return BadRequest(new { message = ex.Message });
+                // return BadRequest(new { message = ex.Message });
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -107,11 +116,16 @@ namespace DevTrack.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult Info(int id)
         {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var user = _userService.GetById(id);
             var model = _mapper.Map<UserModel>(user);
-            return Ok(model);
+            // return Ok(model);
+            return View("Info");
         }
 
         [HttpPut("{id}")]

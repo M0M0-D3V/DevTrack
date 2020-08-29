@@ -40,6 +40,7 @@
                             <div class="dropdown-menu" aria-labelledby="userIntialsDropdown">
                                 <a asp-controller="Workspace" asp-action="New" class="dropdown-item">Workspace</a>
                                 <hr/>
+                                <a asp-controller="Users" asp-action="Info"asp-route-userid="@Context.Session.GetInt32("UserId")" class="dropdown-item">My Account</a>
                                 <a asp-controller="Home" asp-action="Logout" class="dropdown-item">Logout</a>
                             </div>
                         </li>

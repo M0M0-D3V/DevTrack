@@ -21,7 +21,7 @@
             if(@a.UserId == @Context.Session.GetInt32("UserId"))
             {
                 <tr>
-                    <td>@a.Name</td>
+                    <td><a asp-controller="Workspace" asp-action="Info" asp-route-id="@a.WorkspaceId">@a.Name</a></td>
                     <td>@a.Projects</td>
                     <td>@a.CoWorkers</td>
                     <td>@a.CreatedAt</td>

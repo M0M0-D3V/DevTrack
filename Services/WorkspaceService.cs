@@ -9,6 +9,7 @@ namespace DevTrack.Services
     {
         Workspace Create(Workspace workspace);
         IEnumerable<Workspace> GetAll();
+        Workspace GetById(int id);
 
     }
     public class WorkspaceService : IWorkspaceService
@@ -29,6 +30,10 @@ namespace DevTrack.Services
         public IEnumerable<Workspace> GetAll()
         {
             return _context.Workspaces;
+        }
+        public Workspace GetById(int id)
+        {
+            return _context.Workspaces.Find(id);
         }
     }
 }

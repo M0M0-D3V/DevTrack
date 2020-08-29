@@ -71,5 +71,16 @@ namespace DevTrack.Controllers
             var model = _mapper.Map<IList<WorkspaceModel>>(workspaces);
             return Ok(model);
         }
+        [HttpGet("{id}")]
+        public IActionResult Info(int id)
+        {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var thisWorkspace = _workspaceService.GetById(id);
+            var model = _mapper.Map<WorkspaceModel>(thisWorkspace);
+            return View("Info", model);
+        }
     }
 }
