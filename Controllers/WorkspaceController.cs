@@ -82,5 +82,14 @@ namespace DevTrack.Controllers
             var model = _mapper.Map<WorkspaceModel>(thisWorkspace);
             return View("Info", model);
         }
+        [HttpPut("{id}/update")]
+        public IActionResult Update([FromForm] UpdateWorkspaceModel model, int id)
+        {
+            var thisWorkspace = _workspaceService.GetById(id);
+            var workspace = _mapper.Map<Workspace>(model);
+            _workspaceService.Update(workspace);
+
+            return RedirectToAction("Info", "Workspace");
+        }
     }
 }

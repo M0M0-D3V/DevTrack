@@ -1,10 +1,27 @@
+@model WorkspaceModel
 @{
-    ViewData["Title"] = "This Workspace";
+    ViewData["Title"] = @Model.Name;
 }
-@* <head>
-    <link rel="stylesheet" href="~/css/loginstyle.css"/>
-</head> *@
+<head>
+    <link rel="stylesheet" href="~/css/site3.css"/>
+</head>
+<h3>Workspace: @Model.Name</h3>
 <div class="container">
-<h3 class="text-center">Info about workspace</h3>
+<div class="row">
+    <div class="col-md-3 left">
+        <h4>Description</h4>
+        <form asp-action="Update" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" method="POST" class="workspaceinfo form-group">
+            <textarea class="form-control" placeholder="@Model.Description"></textarea>
+            <button class="btn-success">Update Description</button>
+        </form>
+        <h4>CoWorkers</h4>
+        <p>placeholder for form selection to find Coworkers to add to this workspace</p>
 
+    </div>
+    <div class="col-md-9">
+        <h4>Projects</h4>
+        <p>Placeholder for looping through existing projects for user...</p>
+        <a href="#">Add Project</a>
+    </div>
+</div>
 </div>

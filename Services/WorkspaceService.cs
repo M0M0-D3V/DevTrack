@@ -10,6 +10,7 @@ namespace DevTrack.Services
         Workspace Create(Workspace workspace);
         IEnumerable<Workspace> GetAll();
         Workspace GetById(int id);
+        void Update(Workspace workspace);
 
     }
     public class WorkspaceService : IWorkspaceService
@@ -34,6 +35,11 @@ namespace DevTrack.Services
         public Workspace GetById(int id)
         {
             return _context.Workspaces.Find(id);
+        }
+        public void Update(Workspace workspace)
+        {
+            _context.Workspaces.Update(workspace);
+            _context.SaveChanges();
         }
     }
 }
