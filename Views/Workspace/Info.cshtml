@@ -10,8 +10,8 @@
 <div class="row">
     <div class="col-md-3 left">
         <h4>Description</h4>
-        <form asp-action="Update" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" method="GET" class="workspaceinfo form-group">
-            <textarea class="form-control" placeholder="@Model.Description"></textarea>
+        <form asp-action="Update" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" asp-route-userid="@Context.Session.GetInt32("UserId")" method="GET" class="workspaceinfo form-group">
+            <textarea class="form-control" placeholder="@Model.Description" asp-for="Description"></textarea>
             <button class="btn-success">Update Description</button>
         </form>
         <h4>CoWorkers</h4>

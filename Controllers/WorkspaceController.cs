@@ -84,16 +84,15 @@ namespace DevTrack.Controllers
             return View("Info", model);
         }
         [HttpGet("{id}/update")]
-        public IActionResult Update([FromForm] UpdateWorkspaceModel model, int id)
+        public IActionResult Update([FromForm] UpdateWorkspaceModel model, int id, int userid)
         {
             if (!isLoggedIn)
             {
                 return RedirectToAction("Index", "Home");
             }
             var thisWorkspace = _workspaceService.GetById(id);
-            thisWorkspace.UserId = (int)HttpContext.Session.GetInt32("UserId");
-
-            var workspace = _mapper.Map<Workspace>(thisWorkspace);
+            model.UserId = userid;
+            var workspace = _mapper.Map<Workspace>(model);
             _workspaceService.Update(workspace);
             Console.WriteLine("*************WORKING PLEASE**************");
 
