@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AutoMapper;
 using DevTrack.Entities;
@@ -82,14 +83,21 @@ namespace DevTrack.Controllers
             var model = _mapper.Map<WorkspaceModel>(thisWorkspace);
             return View("Info", model);
         }
-        [HttpPut("{id}/update")]
+        [HttpGet("{id}/update")]
         public IActionResult Update([FromForm] UpdateWorkspaceModel model, int id)
         {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var thisWorkspace = _workspaceService.GetById(id);
-            var workspace = _mapper.Map<Workspace>(model);
-            _workspaceService.Update(workspace);
+            thisWorkspace.UserId = (int)HttpContext.Session.GetInt32("UserId");
 
-            return RedirectToAction("Info", "Workspace");
+            var workspace = _mapper.Map<Workspace>(thisWorkspace);
+            _workspaceService.Update(workspace);
+            Console.WriteLine("*************WORKING PLEASE**************");
+
+            return RedirectToAction("Info", "Workspace", new { id = id });
         }
     }
 }
