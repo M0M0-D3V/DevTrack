@@ -12,7 +12,8 @@ namespace DevTrack.Services
         Workspace Create(Workspace workspace);
         IEnumerable<Workspace> GetAll();
         Workspace GetById(int id);
-        void Update(Workspace workspace);
+        Workspace Update(Workspace workspace);
+        void Delete(int id);
 
     }
     public class WorkspaceService : IWorkspaceService
@@ -38,15 +39,22 @@ namespace DevTrack.Services
         {
             return _context.Workspaces.Find(id);
         }
-        public void Update(Workspace workspace)
+        public Workspace Update(Workspace workspace)
         {
-            Workspace thisWorkspace = _context.Workspaces.Find(workspace.WorkspaceId);
-
+            Workspace thisWorkspace = _context.Workspaces.FirstOrDefault(ws => ws.WorkspaceId == workspace.WorkspaceId);
+            // Workspace thisWorkspace = _context.Workspaces.Find(workspace.WorkspaceId);
             thisWorkspace.Description = workspace.Description;
             thisWorkspace.UpdatedAt = DateTime.Now;
-            // _context.Workspaces.Update(thisWorkspace);
             _context.SaveChanges();
-            Console.WriteLine("*****GOT THE MESSAGE");
+            Console.WriteLine("*****GOT THE MESSAGE***");
+            return thisWorkspace;
+        }
+        public void Delete(int id)
+        {
+            Workspace thisWorkspace = _context.Workspaces.SingleOrDefault(w => w.WorkspaceId == id);
+            _context.Workspaces.Remove(thisWorkspace);
+            _context.SaveChanges();
+            Console.WriteLine("*****JOB DONE*****");
         }
     }
 }

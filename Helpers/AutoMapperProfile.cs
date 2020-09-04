@@ -25,6 +25,7 @@ namespace DevTrack.Helpers
             CreateMap<Workspace, WorkspaceModel>();
             CreateMap<NewWorkspaceModel, Workspace>();
             CreateMap<UpdateWorkspaceModel, Workspace>();
+            CreateMap<WorkspaceModel, Workspace>();
 
             CreateMap<Project, ProjectModel>();
             CreateMap<NewProjectModel, Project>();

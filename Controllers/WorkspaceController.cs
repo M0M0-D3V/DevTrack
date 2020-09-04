@@ -85,20 +85,26 @@ namespace DevTrack.Controllers
         }
         [HttpGet("{id}/update")]
         // [("{id}/update"), HttpPut]
-        public IActionResult Update([FromForm] UpdateWorkspaceModel model, int id, int userid)
+        public IActionResult Update(WorkspaceModel model, int id, int userid)
         {
             if (!isLoggedIn)
             {
                 return RedirectToAction("Index", "Home");
             }
             model.WorkspaceId = id;
-            model.UserId = userid;
-
             var workspace = _mapper.Map<Workspace>(model);
             _workspaceService.Update(workspace);
-            Console.WriteLine("*************WORKING PLEASE**************");
-
             return RedirectToAction("Info", "Workspace", new { id = id });
+        }
+        [HttpGet("{id}/delete")]
+        public IActionResult Delete(int id, int userid)
+        {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            _workspaceService.Delete(id);
+            return RedirectToAction("Dashboard", "Home", userid);
         }
     }
 }

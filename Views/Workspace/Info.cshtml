@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="~/css/site3.css"/>
 </head>
 <h3>Workspace: @Model.Name</h3>
+<a class="btn btn-danger btn-sm" role="button" asp-action="Delete" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" asp-route-userid="@Context.Session.GetInt32("UserId")">Delete</a>
 <div class="container">
 <div class="row">
     <div class="col-md-3 left">
         <h4>Description</h4>
         <form asp-action="Update" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" asp-route-userid="@Context.Session.GetInt32("UserId")" method="GET" class="workspaceinfo form-group">
             <textarea class="form-control" placeholder="@Model.Description" asp-for="Description"></textarea>
-            <button class="btn-success">Update Description</button>
+            <button class="btn btn-success btn-sm">Update Description</button>
         </form>
         <h4>CoWorkers</h4>
         <p>placeholder for form selection to find Coworkers to add to this workspace</p>
@@ -21,7 +22,7 @@
     <div class="col-md-9">
         <h4>Projects</h4>
         <p>Placeholder for looping through existing projects for user...</p>
-        <a href="#">Add Project</a>
+        <a href="#" role="button" class="btn btn-info btn-sm">Add Project</a>
     </div>
 </div>
 </div>
