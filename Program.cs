@@ -21,7 +21,7 @@ namespace DevTrack
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>()
-                    .UseUrls("http://localhost:9001");
+                    .UseUrls("http://localhost:9000");
                 });
     }
 }
