@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using DevTrack.Data;
 using DevTrack.Entities;
 
@@ -7,7 +8,7 @@ namespace DevTrack.Services
     public interface IProjectService
     {
         Project Create(Project project);
-        // IEnumerable<Project> GetAll();
+        IEnumerable<Project> GetAll();
         // Project GetById(int id);
         // Project Update(Project project);
         // void Delete(int id);
@@ -25,6 +26,11 @@ namespace DevTrack.Services
             _context.Projects.Add(project);
             _context.SaveChanges();
             return project;
+        }
+        public IEnumerable<Project> GetAll()
+        {
+            List<Project> AllProjects = _context.Projects.ToList();
+            return AllProjects;
         }
     }
 }

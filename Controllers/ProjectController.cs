@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using DevTrack.Entities;
 using DevTrack.Helpers;
@@ -50,12 +51,19 @@ namespace DevTrack.Controllers
             try
             {
                 _projectService.Create(project);
-                return RedirectToAction("Dashboard", "Home", model.UserId);
+                return RedirectToAction("Info", "Workspace", new { id = model.WorkspaceId });
             }
             catch (AppException ex)
             {
                 return BadRequest(new { message = ex.Message });
             }
+        }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var projects = _projectService.GetAll();
+            var model = _mapper.Map<IList<ProjectModel>>(projects);
+            return Ok(model);
         }
     }
 }
