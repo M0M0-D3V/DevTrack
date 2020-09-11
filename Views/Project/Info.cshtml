@@ -7,16 +7,16 @@
 </head>
 <div class="row top">
 <h3>Project: @Model.Name</h3>
-<a class="btn btn-danger btn-sm" role="button" asp-action="Delete" asp-controller="Project" asp-route-id="@Model.ProjectId" asp-route-userid="@Context.Session.GetInt32("UserId")">Delete</a>
+@* <a class="btn btn-danger btn-sm" role="button" asp-action="Delete" asp-controller="Project" asp-route-id="@Model.ProjectId" asp-route-userid="@Context.Session.GetInt32("UserId")">Delete</a> *@
 </div>
 <div class="main">
 <div class="row">
     <div class="col-md-3 left">
         <h4>Description</h4>
-        <form asp-action="Update" asp-controller="Project" asp-route-id="@Model.ProjectId" asp-route-userid="@Context.Session.GetInt32("UserId")" method="GET" class="workspaceinfo form-group">
-            <textarea class="form-control" placeholder="@Model.Description" asp-for="Description"></textarea>
-            <button class="btn btn-success btn-sm">Update Description</button>
-        </form>
+        @* <form asp-action="Update" asp-controller="Project" asp-route-id="@Model.ProjectId" asp-route-userid="@Context.Session.GetInt32("UserId")" method="GET" class="workspaceinfo form-group"> *@
+            @* <textarea class="form-control" placeholder="@Model.Description" asp-for="Description"></textarea> *@
+            @* <button class="btn btn-success btn-sm">Update Description</button> *@
+        @* </form> *@
         <h4>CoWorkers</h4>
         <p>placeholder for form selection to find Developers to add to this Project</p>
 
@@ -32,7 +32,7 @@
             }
         } *@
         </div>
-        <a asp-action="New" asp-controller="Task" asp-route-id="@Model.ProjectId" role="button" class="btn btn-info btn-sm">Add Task</a>
+        @* <a asp-action="New" asp-controller="Task" asp-route-id="@Model.ProjectId" role="button" class="btn btn-info btn-sm">Add Task</a> *@
     </div>
 </div>
 </div>

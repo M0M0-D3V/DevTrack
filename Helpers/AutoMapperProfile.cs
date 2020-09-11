@@ -30,6 +30,7 @@ namespace DevTrack.Helpers
             CreateMap<Project, ProjectModel>();
             CreateMap<NewProjectModel, Project>();
             CreateMap<UpdateProjectModel, Project>();
+            CreateMap<ProjectModel, Project>();
 
             CreateMap<Task, TaskModel>();
             CreateMap<NewTaskModel, Task>();
