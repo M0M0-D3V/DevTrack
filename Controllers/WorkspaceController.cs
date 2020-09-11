@@ -81,6 +81,7 @@ namespace DevTrack.Controllers
             }
             var thisWorkspace = _workspaceService.GetById(id);
             var model = _mapper.Map<WorkspaceModel>(thisWorkspace);
+            HttpContext.Session.SetInt32("WorkspaceId", id);
             return View("Info", model);
         }
         [HttpGet("{id}/update")]

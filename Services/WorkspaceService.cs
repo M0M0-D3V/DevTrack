@@ -4,6 +4,7 @@ using System.Linq;
 using DevTrack.Data;
 using DevTrack.Entities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevTrack.Services
 {
@@ -33,7 +34,11 @@ namespace DevTrack.Services
         }
         public IEnumerable<Workspace> GetAll()
         {
-            return _context.Workspaces;
+            List<Workspace> AllWorkspaces = _context.Workspaces
+            .Include(proj => proj.Projects)
+            .Include(co => co.CoWorkers)
+            .ToList();
+            return AllWorkspaces;
         }
         public Workspace GetById(int id)
         {

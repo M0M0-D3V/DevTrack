@@ -45,13 +45,12 @@ namespace DevTrack.Controllers
         public IActionResult Create([FromForm] NewProjectModel model)
         {
             model.UserId = (int)HttpContext.Session.GetInt32("UserId");
+            model.WorkspaceId = (int)HttpContext.Session.GetInt32("WorkspaceId");
             var project = _mapper.Map<Project>(model);
             try
             {
-                {
-                    _projectService.Create(project);
-                    return RedirectToAction("Dashboard", "Home", model.UserId);
-                }
+                _projectService.Create(project);
+                return RedirectToAction("Dashboard", "Home", model.UserId);
             }
             catch (AppException ex)
             {
