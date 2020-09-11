@@ -14412,6 +14412,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Project\\Info.cshtml",
+      "TargetPath": "Views\\Project\\Info.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Home\\Dashboard.cshtml",
       "TargetPath": "Views\\Home\\Dashboard.cshtml",
       "FileKind": "mvc"

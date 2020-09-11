@@ -9,7 +9,7 @@ namespace DevTrack.Services
     {
         Project Create(Project project);
         IEnumerable<Project> GetAll();
-        // Project GetById(int id);
+        Project GetById(int id);
         // Project Update(Project project);
         // void Delete(int id);
     }
@@ -31,6 +31,11 @@ namespace DevTrack.Services
         {
             List<Project> AllProjects = _context.Projects.ToList();
             return AllProjects;
+        }
+        public Project GetById(int id)
+        {
+            Project ThisProject = _context.Projects.FirstOrDefault(p => p.ProjectId == id);
+            return ThisProject;
         }
     }
 }

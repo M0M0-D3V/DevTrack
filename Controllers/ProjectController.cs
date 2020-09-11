@@ -65,5 +65,17 @@ namespace DevTrack.Controllers
             var model = _mapper.Map<IList<ProjectModel>>(projects);
             return Ok(model);
         }
+        [HttpGet("{id}")]
+        public IActionResult Info(int id)
+        {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var thisProject = _projectService.GetById(id);
+            var model = _mapper.Map<ProjectModel>(thisProject);
+            HttpContext.Session.SetInt32("ProjectId", id);
+            return View("Info", model);
+        }
     }
 }
