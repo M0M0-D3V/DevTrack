@@ -28,7 +28,7 @@
         @{
             foreach (var p in @Model.Projects)
             {
-                <a asp-action="Info" asp-asp-controller="Project" asp-route-id="@p.ProjectId"><div class="pcard">@p.Name</div></a>
+                <a asp-action="Info" asp-controller="Project" asp-route-id="@p.ProjectId"><div class="pcard">@p.Name</div></a>
             }
         }
         </div>
