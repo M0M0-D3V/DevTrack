@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DevTrack.Data;
 using DevTrack.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevTrack.Services
 {
@@ -35,7 +36,9 @@ namespace DevTrack.Services
         }
         public Project GetById(int id)
         {
-            Project ThisProject = _context.Projects.FirstOrDefault(p => p.ProjectId == id);
+            Project ThisProject = _context.Projects
+            .Include(t => t.Tasks)
+            .FirstOrDefault(p => p.ProjectId == id);
             return ThisProject;
         }
         public Project Update(Project project)

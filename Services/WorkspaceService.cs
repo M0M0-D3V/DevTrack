@@ -45,7 +45,6 @@ namespace DevTrack.Services
             Workspace ThisWorkspace = _context.Workspaces.Include(p => p.Projects)
             .Include(c => c.CoWorkers)
             .FirstOrDefault(ws => ws.WorkspaceId == id);
-
             return ThisWorkspace;
         }
         public Workspace Update(Workspace workspace)

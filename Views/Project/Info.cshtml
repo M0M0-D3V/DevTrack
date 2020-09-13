@@ -25,12 +25,16 @@
         <h4>Stuff inside this project like tasks</h4>
         <div class="pcards col-md-12">
             maybe loop for tasks?
-        @* @{
-            foreach (var p in @Model.Projects)
+            <ul>
+        @{
+            foreach (var t in @Model.Tasks)
             {
-                <a asp-action="Info" asp-asp-controller="Project" asp-route-id="@p.ProjectId"><div class="pcard">@p.Name</div></a>
+                <li>
+                <a asp-action="Info" asp-controller="Tasks">@t.Name</a>
+                </li>
             }
-        } *@
+        }
+            </ul>
         </div>
         <a asp-action="New" asp-controller="Task" asp-route-id="@Model.ProjectId" role="button" class="btn btn-info btn-sm">Add Task</a>
     </div>
