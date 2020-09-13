@@ -78,3 +78,4 @@ D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razo
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razor\Views\Users\Info.cshtml.g.cs
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razor\Views\Project\New.cshtml.g.cs
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razor\Views\Project\Info.cshtml.g.cs
+D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razor\Views\Task\New.cshtml.g.cs

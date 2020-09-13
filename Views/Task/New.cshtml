@@ -1,0 +1,19 @@
+@model NewTaskModel
+@{
+    ViewData["Title"] = "New Project";
+}
+@* <head>
+    <link rel="stylesheet" href="~/css/loginstyle.css"/>
+</head> *@
+<div class="container">
+<h3 class="text-center">Create Your Task</h3>
+<form asp-action="Create" asp-controller="Task" method="POST">
+    <div class="form-group">
+    <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" placeholder="Task Name"/> <br>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-md" type="submit" >Create Task</button>
+    </div>
+</form>
+</div>

@@ -9,7 +9,7 @@ namespace DevTrack.Models.Subtasks
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public int DeveloperId { get; set; }
+        // public int DeveloperId { get; set; }
         public Developer AssignedTo { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime Deadline { get; set; }

@@ -14,7 +14,7 @@ namespace DevTrack.Entities
         public User Reporter { get; set; }
         public int ProjectId { get; set; }
         public Project Project { get; set; }
-        public int DeveloperId { get; set; }
+        // public int DeveloperId { get; set; }
         public Developer AssignedTo { get; set; }
         public DateTime Deadline { get; set; }
         public List<Comment> Comments { get; set; }
