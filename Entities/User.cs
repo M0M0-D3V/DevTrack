@@ -24,5 +24,6 @@ namespace DevTrack.Entities
         public List<CoWorker> CoWorkers { get; set; }
         public List<Project> Projects { get; set; }
         public List<Developer> Developers { get; set; }
+        public List<Favorite> Favorites { get; set; }
     }
 }
