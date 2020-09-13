@@ -13,6 +13,8 @@ namespace DevTrack.Models.Tasks
         public string Description { get; set; }
         public int UserId { get; set; }
         public User Reporter { get; set; }
+        public int ProjectId { get; set; }
+        public Project Project { get; set; }
         public int DeveloperId { get; set; }
         public Developer AssignedTo { get; set; }
         public DateTime Deadline { get; set; }

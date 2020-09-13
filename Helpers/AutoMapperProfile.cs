@@ -35,6 +35,7 @@ namespace DevTrack.Helpers
             CreateMap<Task, TaskModel>();
             CreateMap<NewTaskModel, Task>();
             CreateMap<UpdateTaskModel, Task>();
+            CreateMap<TaskModel, Task>();
 
             CreateMap<Subtask, SubtaskModel>();
             CreateMap<NewSubtaskModel, Subtask>();
