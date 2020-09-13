@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DevTrack.Data;
@@ -10,8 +11,8 @@ namespace DevTrack.Services
         Project Create(Project project);
         IEnumerable<Project> GetAll();
         Project GetById(int id);
-        // Project Update(Project project);
-        // void Delete(int id);
+        Project Update(Project project);
+        int Delete(int id);
     }
     public class ProjectService : IProjectService
     {
@@ -36,6 +37,25 @@ namespace DevTrack.Services
         {
             Project ThisProject = _context.Projects.FirstOrDefault(p => p.ProjectId == id);
             return ThisProject;
+        }
+        public Project Update(Project project)
+        {
+            Project thisProject = _context.Projects.
+            FirstOrDefault(p => p.ProjectId == project.ProjectId);
+            thisProject.Description = project.Description;
+            thisProject.UpdatedAt = DateTime.Now;
+            _context.SaveChanges();
+            Console.WriteLine("********SAVING PROJ DESCRIPTION ******");
+            return thisProject;
+        }
+        public int Delete(int id)
+        {
+            Project thisProject = _context.Projects.SingleOrDefault(p => p.ProjectId == id);
+            int thisWorkspaceId = thisProject.WorkspaceId;
+            _context.Projects.Remove(thisProject);
+            _context.SaveChanges();
+            Console.WriteLine("********SUCCESS DELETING PROJECT **********");
+            return thisWorkspaceId;
         }
     }
 }

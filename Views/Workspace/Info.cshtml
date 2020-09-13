@@ -19,6 +19,12 @@
         </form>
         <h4>CoWorkers</h4>
         <p>placeholder for form selection to find Coworkers to add to this workspace</p>
+        <form asp-action="Update" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" method="GET" class="workspaceinfo form-group">
+            <select asp-for="CoWorker">
+                @* not sure what to put here for options... *@
+            </select>
+        </form>
+        <p>Possible also find a way to email invite another user into this workspace</p>
 
     </div>
     <div class="col-md-9">
@@ -33,6 +39,12 @@
         }
         </div>
         <a asp-action="New" asp-controller="Project" asp-route-id="@Model.WorkspaceId" role="button" class="btn btn-info btn-sm">Add Project</a>
+        <p class="lead">Also later on... add a hovering tooltip that shows description for each project</p>
+        <h4>Placeholder for Conversation / Discussion</h4>
+        <ul>Wall Style
+            <li>Message System</li>
+            <li>With Comments</li>
+        </ul>
     </div>
 </div>
 </div>

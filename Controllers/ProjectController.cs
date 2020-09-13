@@ -77,5 +77,27 @@ namespace DevTrack.Controllers
             HttpContext.Session.SetInt32("ProjectId", id);
             return View("Info", model);
         }
+        [HttpGet("{id}/update")]
+        public IActionResult Update(ProjectModel model, int id, int userid)
+        {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            model.ProjectId = id;
+            var project = _mapper.Map<Project>(model);
+            _projectService.Update(project);
+            return RedirectToAction("Info", "Project", new { id = id });
+        }
+        [HttpGet("{id}/delete")]
+        public IActionResult Delete(int id)
+        {
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            int thisWorkspaceId = _projectService.Delete(id);
+            return RedirectToAction("Info", "Workspace", new { id = thisWorkspaceId });
+        }
     }
 }

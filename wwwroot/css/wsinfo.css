@@ -124,3 +124,7 @@ textarea {
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
+
+ul li {
+    margin-left: 50px;
+}

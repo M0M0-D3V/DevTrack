@@ -44,10 +44,11 @@ namespace DevTrack
             services.AddRazorPages();
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddDistributedMemoryCache();
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(1);
-            });
+            // services.AddSession(options =>
+            // {
+            //     options.IdleTimeout = TimeSpan.FromMinutes(1);
+            // });
+            services.AddSession();
 
             var appSettingsSection = _configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
