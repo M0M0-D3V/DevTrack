@@ -1,4 +1,5 @@
 @model WorkspaceModel
+@Html.Partial("_NewProject", new NewProjectModel())
 @{
     ViewData["Title"] = @Model.Name;
 }
@@ -38,7 +39,8 @@
             }
         }
         </div>
-        <a asp-action="New" asp-controller="Project" asp-route-id="@Model.WorkspaceId" role="button" class="btn btn-info btn-sm">Add Project</a>
+        @* <a asp-action="New" asp-controller="Project" asp-route-id="@Model.WorkspaceId" role="button" class="btn btn-info btn-sm">Add Project</a> *@
+        <a class="dropdown-item newproject" data-toggle="modal" data-target="#NewProject">Add Project</a>
         <p class="lead">Also later on... add a hovering tooltip that shows description for each project</p>
         <h4>Placeholder for Conversation / Discussion</h4>
         <ul>Wall Style
