@@ -1,3 +1,5 @@
+@await Html.PartialAsync("_Register", new RegisterModel())
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -15,7 +17,6 @@
     <p>
         @* MODAL for Registration form *@
     <a href="#" class="register" data-toggle="modal" data-target="#Register">Not a member? Register</a>
-            <partial name="_Register"/>
 </p>
         </div>
     </div>

@@ -32,8 +32,14 @@
                                 <a asp-controller="Organization" asp-action="New" class="dropdown-item">Organization</a>
                                 <a
                                 class="dropdown-item newworkspace" data-toggle="modal" data-target="#NewWorkspace">Workspace</a>
-                                <a class="dropdown-item newproject" data-toggle="modal" data-target="#NewProject">Project</a>
+                                @if(@Context.Session.GetInt32("WorkspaceId") != null)
+                                {
+                                    <a class="dropdown-item newproject" data-toggle="modal" data-target="#NewProject">Project</a>
+                                }
+                                @if(@Context.Session.GetInt32("ProjectId") != null)
+                                {
                                 <a class="dropdown-item" href="#">Task</a>
+                                }
                                 <a class="dropdown-item" href="#">Conversation</a>
                             </div>
                         </li>
