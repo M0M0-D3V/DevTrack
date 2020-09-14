@@ -14467,6 +14467,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Home\\_NewWorkspace.cshtml",
+      "TargetPath": "Views\\Home\\_NewWorkspace.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"

@@ -15,7 +15,7 @@
         {
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 d-flex">
             @* <nav class="navbar navbar-light bg-white border-bottom box-shadow mb-3 justify-content-between"> *@
-            <div id="NavDropDown" class="lex-container container mr-auto">
+            <div id="NavDropDown" class="flex-container container mr-auto">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">devtrack</a>
                     <ul class="navbar-nav fex-container mr-auto">
                         <li>
@@ -28,7 +28,10 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="plusDropdown">
                                 <a asp-controller="Organization" asp-action="New" class="dropdown-item">Organization</a>
-                                <a asp-controller="Workspace" asp-action="New" class="dropdown-item">Workspace</a>
+                                <a
+                                asp-controller="Workspace" asp-action="New" 
+                                class="dropdown-item newworkspace" data-toggle="modal" data-target="#NewWorkspace">Workspace</a>
+                                <partial name="_NewWorkspace"/>
                                 <a class="dropdown-item" href="#">Task</a>
                                 <a class="dropdown-item" href="#">Project</a>
                                 <a class="dropdown-item" href="#">Conversation</a>
