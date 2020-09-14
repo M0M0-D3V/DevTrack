@@ -29,9 +29,9 @@
                             <div class="dropdown-menu" aria-labelledby="plusDropdown">
                                 <a asp-controller="Organization" asp-action="New" class="dropdown-item">Organization</a>
                                 <a
-                                asp-controller="Workspace" asp-action="New" 
+                                @* asp-controller="Workspace" asp-action="New"  *@
                                 class="dropdown-item newworkspace" data-toggle="modal" data-target="#NewWorkspace">Workspace</a>
-                                <partial name="_NewWorkspace"/>
+                                @* <partial name="_NewWorkspace"/> *@
                                 <a class="dropdown-item" href="#">Task</a>
                                 <a class="dropdown-item" href="#">Project</a>
                                 <a class="dropdown-item" href="#">Conversation</a>
