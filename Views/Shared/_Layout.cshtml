@@ -41,7 +41,10 @@
                             <a class="nav-link" href="#" id="userInitialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@Context.Session.GetString("FullName")
                             </a>
                             <div class="dropdown-menu" aria-labelledby="userIntialsDropdown">
-                                <a asp-controller="Workspace" asp-action="New" class="dropdown-item">Workspace</a>
+                                <a
+                                @* asp-controller="Workspace" asp-action="New"  *@
+                                class="dropdown-item newworkspace" data-toggle="modal" data-target="#NewWorkspace">Workspace</a>
+                                @* <partial name="_NewWorkspace"/> *@
                                 <hr/>
                                 <a asp-controller="Users" asp-action="Info"asp-route-userid="@Context.Session.GetInt32("UserId")" class="dropdown-item">My Account</a>
                                 <a asp-controller="Home" asp-action="Logout" class="dropdown-item">Logout</a>
