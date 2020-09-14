@@ -1,6 +1,6 @@
 @model UserModel
-@Html.Partial("_NewWorkspace", new NewWorkspaceModel())
-@Html.Partial("_NewProject", new NewProjectModel())
+@await Html.PartialAsync("_NewWorkspace", new NewWorkspaceModel())
+@await Html.PartialAsync("_NewProject", new NewProjectModel())
 
 @{
     ViewData["Title"] = "Dashboard";
