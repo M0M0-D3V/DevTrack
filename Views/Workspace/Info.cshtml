@@ -1,6 +1,7 @@
 @model WorkspaceModel
 @await Html.PartialAsync("_NewWorkspace", new NewWorkspaceModel())
 @await Html.PartialAsync("_NewProject", new NewProjectModel())
+@await Html.PartialAsync("_NewTask", new NewTaskModel())
 @{
     ViewData["Title"] = @Model.Name;
 }

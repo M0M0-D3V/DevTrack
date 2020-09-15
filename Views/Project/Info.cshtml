@@ -1,4 +1,8 @@
 @model ProjectModel
+@await Html.PartialAsync("_NewWorkspace", new NewWorkspaceModel())
+@await Html.PartialAsync("_NewProject", new NewProjectModel())
+@await Html.PartialAsync("_NewTask", new NewTaskModel())
+
 @{
     ViewData["Title"] = @Model.Name;
 }
@@ -36,7 +40,8 @@
         }
             </ul>
         </div>
-        <a asp-action="New" asp-controller="Task" asp-route-id="@Model.ProjectId" role="button" class="btn btn-info btn-sm">Add Task</a>
+        <a class="newtask btn btn-sm btn-secondary" data-toggle="modal" data-target="#NewTask" role="button">Add Task</a>
+        @* <a asp-action="New" asp-controller="Task" asp-route-id="@Model.ProjectId" role="button" class="btn btn-info btn-sm">Add Task</a> *@
     </div>
 </div>
 </div>
