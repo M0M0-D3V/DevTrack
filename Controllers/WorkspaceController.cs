@@ -19,6 +19,7 @@ namespace DevTrack.Controllers
     public class WorkspaceController : Controller
     {
         private IWorkspaceService _workspaceService;
+        private IUserService _userService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
         private int? uid
@@ -32,10 +33,12 @@ namespace DevTrack.Controllers
 
         public WorkspaceController(
             IWorkspaceService workspaceService,
+            IUserService userService,
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
             _workspaceService = workspaceService;
+            _userService = userService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
@@ -81,6 +84,9 @@ namespace DevTrack.Controllers
             }
             var thisWorkspace = _workspaceService.GetById(id);
             var model = _mapper.Map<WorkspaceModel>(thisWorkspace);
+            var getUsers = _userService.GetAll();
+            var AllUsers = _mapper.Map<IList<UserModel>>(getUsers);
+            ViewBag.AllUsers = AllUsers;
             HttpContext.Session.SetInt32("WorkspaceId", id);
             return View("Info", model);
         }

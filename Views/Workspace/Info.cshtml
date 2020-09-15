@@ -23,9 +23,18 @@
         <h4>CoWorkers</h4>
         <p>placeholder for form selection to find Coworkers to add to this workspace</p>
         <form asp-action="Update" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" method="GET" class="workspaceinfo form-group">
-            <select asp-for="CoWorker">
-                @* not sure what to put here for options... *@
+            <select asp-for="UserId" asp-items="@ViewBag.AllUsers">
+                @{
+                    foreach (var u in @ViewBag.AllUsers)
+                    {
+                        if(@u.UserId != @Context.Session.GetInt32("UserId"))
+                        {
+                            <option value="@u.UserId">@ViewBag.FirstName @ViewBag.LastName</option>
+                        }
+                    }
+                }
             </select>
+            <button class="btn btn-sm btn-secondary" type="submit">Add CoWorker</button>
         </form>
         <p>Possible also find a way to email invite another user into this workspace</p>
 

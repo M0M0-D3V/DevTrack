@@ -38,7 +38,7 @@
                                 }
                                 @if(@Context.Session.GetInt32("ProjectId") != null)
                                 {
-                                <a class="dropdown-item" href="#">Task</a>
+                                <a class="dropdown-item newtask" data-toggle="modal" data-target="#NewTask">Task</a>
                                 }
                                 <a class="dropdown-item" href="#">Conversation</a>
                             </div>
@@ -47,8 +47,7 @@
                             <a class="nav-link" href="#" id="userInitialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">@Context.Session.GetString("FullName")
                             </a>
                             <div class="dropdown-menu" aria-labelledby="userIntialsDropdown">
-                                <a
-                                class="dropdown-item newworkspace" data-toggle="modal" data-target="#NewWorkspace">Workspace</a>
+                                Placeholder Workspace List
                                 <hr/>
                                 <a asp-controller="Users" asp-action="Info"asp-route-userid="@Context.Session.GetInt32("UserId")" class="dropdown-item">My Account</a>
                                 <a asp-controller="Home" asp-action="Logout" class="dropdown-item">Logout</a>
