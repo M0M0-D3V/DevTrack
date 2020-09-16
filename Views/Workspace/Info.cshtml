@@ -23,7 +23,8 @@
         <h4>CoWorkers</h4>
         <p>placeholder for form selection to find Coworkers to add to this workspace</p>
         <form asp-action="Update" asp-controller="Workspace" asp-route-id="@Model.WorkspaceId" method="GET" class="workspaceinfo form-group">
-            <select asp-for="UserId" asp-items="@ViewBag.AllUsers">
+            @* <select asp-for="UserId" asp-items="@ViewBag.AllUsers"> *@
+            <select asp-for="UserId">
                 @{
                     foreach (var u in @ViewBag.AllUsers)
                     {
