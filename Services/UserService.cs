@@ -48,9 +48,11 @@ namespace DevTrack.Services
 
         public IEnumerable<User> GetAll()
         {
+            List<User> AllUsers = _context.Users
+            .ToList();
             IEnumerable<User> x = new List<User>();
             var test = (from name in _context.Users select name).ToList();
-            return _context.Users.ToList();
+            return AllUsers;
             // return test;
         }
 
