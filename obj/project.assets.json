@@ -2038,8 +2038,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mimi_\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\mimi_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -2050,11 +2049,10 @@
       "packagesPath": "C:\\Users\\mimi_\\.nuget\\packages\\",
       "outputPath": "D:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\mimi_\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "D:\\OneDrive\\Momo's Folder\\m0m0-d3vProjects\\DevTrack\\NuGet.Config",
+        "C:\\Users\\mimi_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -2133,7 +2131,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

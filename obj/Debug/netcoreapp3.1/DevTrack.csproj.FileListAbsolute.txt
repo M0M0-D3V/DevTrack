@@ -1,6 +1,5 @@
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\appsettings.json
-D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\DevTrack.exe
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\DevTrack.deps.json
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\DevTrack.runtimeconfig.json
@@ -44,8 +43,6 @@ D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\Pome
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
-D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\DevTrack.csprojAssemblyReference.cache
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\staticwebassets\DevTrack.StaticWebAssets.Manifest.cache
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\staticwebassets\DevTrack.StaticWebAssets.xml
@@ -82,3 +79,7 @@ D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razo
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_NewTask.cshtml.g.cs
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_NewWorkspace.cshtml.g.cs
 D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_NewProject.cshtml.g.cs
+D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\DevTrack.csproj.CoreCompileInputs.cache
+D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\obj\Debug\netcoreapp3.1\DevTrack.genruntimeconfig.cache
+D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\nuget.config
+D:\OneDrive\Momo's Folder\m0m0-d3vProjects\DevTrack\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
